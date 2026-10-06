@@ -1,9 +1,9 @@
 <?php
-$con = mysqli_connect("localhost","root","","flayora");
+include "koneksi.php";
 
-// Check connection
-if (mysqli_connect_errno()) {
-  echo "Failed to connect to MySQL: " . mysqli_connect_error();
-  exit();
+$query = mysqli_query($koneksi, "SELECT * FROM user");
+
+while ($data = mysqli_fetch_assoc($query)) {
+    echo $data['Admin'];
 }
 ?>
