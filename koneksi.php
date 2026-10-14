@@ -1,9 +1,13 @@
 <?php
-include "koneksi.php";
+$host = "localhost";
+$user = "root";
+$pass = "Bergasgm121";
+$db   = "flayora"; // Sesuaikan dengan nama database praktikum Anda
 
-$query = mysqli_query($koneksi, "SELECT * FROM user");
+$koneksi = mysqli_connect($host, $user, $pass, $db);
 
-while ($data = mysqli_fetch_assoc($query)) {
-    echo $data['Admin'];
+// Cek koneksi berhasil atau tidak
+if (!$koneksi) {
+    die("Koneksi database gagal: " . mysqli_connect_error());
 }
 ?>
